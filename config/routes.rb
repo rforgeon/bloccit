@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :advertisement
+  resources :advertisements
 
   get 'welcome/faq'
 
