@@ -27,11 +27,11 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @quesiton = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def update
-    @quesiton = Question.find(params[:id])
+    @question = Question.find(params[:id])
     @question.title = params[:question][:title]
     @question.body = params[:question][:body]
     @question.resolved = params[:question][:resolved]

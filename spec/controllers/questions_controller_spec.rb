@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
 
-  let(:my_question) {Question.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph resolved: false)}
+  let(:my_question) {Question.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: false)}
 
   describe "GET #index" do
     it "returns http success" do
@@ -129,7 +129,7 @@ RSpec.describe QuestionsController, type: :controller do
 
      it "redirects to question index" do
        delete :destroy, {id: my_question.id}
-       expect(response).to redirect_to question_path
+       expect(response).to redirect_to questions_path
      end
    end
 
