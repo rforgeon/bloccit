@@ -56,6 +56,11 @@ class PostsController < ApplicationController
      end
    end
 
+   def ordered_by_title
+     self.order(:title)
+   end
+
+
    private
 
    def post_params
