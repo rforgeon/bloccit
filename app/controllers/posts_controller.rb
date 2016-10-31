@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     @post = @topic.posts.build(post_params)
     @post.user = current_user
 
-
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to [@topic, @post]
@@ -27,6 +26,7 @@ class PostsController < ApplicationController
       flash.now[:alert] = "There was an error saving the post. Please try again"
       render :new
     end
+
   end
 
   def edit
@@ -71,5 +71,6 @@ class PostsController < ApplicationController
        redirect_to [post.topic, post]
      end
    end
+
 
 end
