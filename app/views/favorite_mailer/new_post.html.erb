@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>New Post created: "<%= @post.title %>"</h1>
+     <small>
+       By: <%= @post.user.name %>
+     </small>
+     <p>
+       Congratulations! Your new post has been created.
+       You will now receive email notifications when a new comment is made on this post.
+     </p>
+     <p>
+       <%= link_to "View Post on site", topic_post_url(@post.topic, @post )%>
+     </p>
+   </body>
+ </html>
