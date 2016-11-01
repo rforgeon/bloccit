@@ -9,7 +9,10 @@
         </ul>
       </div>
     <%end%>
-
+    <%= form_group_tag(post.errors[:body]) do %>
+     <%= f.label :link %>
+     <%= f.text_field :link, class: 'form-control' , placeholder: "Enter link url", :required => true %>
+    <%end%>
     <%= form_group_tag(post.errors[:body]) do %>
      <%= f.label :title %>
      <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>

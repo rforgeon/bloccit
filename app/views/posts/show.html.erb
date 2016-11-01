@@ -1,4 +1,9 @@
  <div>
+   <div style='float:top'>
+     <%link_obj = get_link_info("#{@post.link}")%>
+     <%=link_to(image_tag(link_obj.images.first.src.to_s, width: '100%'), "#{@post.link}", :target => "_blank")%>
+   </div>
+   <div>
    <%= render partial: 'votes/voter', locals: { post: @post } %>
    <h1>
      <%= @post.title %> <br>
@@ -6,6 +11,7 @@
        submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
      </small>
    </h1>
+  </div>
  </div>
 
  <div class="row">

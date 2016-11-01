@@ -24,6 +24,7 @@ topics = Topic.all
   post = Post.create!(
   user: users.sample,
   topic: topics.sample,
+  link: "https://www.youtube.com/watch?v=72__Mdioty8",
   title: RandomData.random_sentence,
   body: RandomData.random_paragraph
   )

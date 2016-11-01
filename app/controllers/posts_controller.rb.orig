@@ -61,10 +61,13 @@ class PostsController < ApplicationController
      end
    end
 
+<<<<<<< HEAD
+=======
    def get_link_info(link)
      link_obj = LinkThumbnailer.generate(link)
      return link_obj
    end
+>>>>>>> blackout-feature
 
    private
 
