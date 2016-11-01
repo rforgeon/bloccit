@@ -37,10 +37,16 @@
   <h2>Favorites</h2>
     <% if @user.favorites.count >= 1 %>
       <% @user.favorites.each do |f| %>
-      <%=f.post%>
+    <div style="float: left">
+      <%= image_tag f.post.user.avatar_url(50), class: 'media-object gravatar' %>
+    </div>
+    <div >
+      <%=render f.post%>
+    </div>
       <%end%>
     <%else%>
       <h3 style="color:lightgrey"> <%= "#{@user.name} does not have any favorite posts yet." %></h3>
     <%end%>
 
+    <br>
     <br>
