@@ -1,7 +1,10 @@
 class TopicsController < ApplicationController
 
+  helper_method :get_link_info
+
   before_action :require_sign_in, except: [:index, :show]
   before_action :authorize_user, except: [:index, :show]
+
 
 
   def index
@@ -55,6 +58,11 @@ class TopicsController < ApplicationController
       flash.now[:alert] = "There was an error deleting the topic."
       render :show
     end
+  end
+
+  def get_link_info(link)
+    link_obj = LinkThumbnailer.generate(link)
+    return link_obj
   end
 
 

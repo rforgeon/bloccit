@@ -12,6 +12,10 @@
      <%end%>
      <% @topic.posts.each do |post| %>
        <div class="media">
+         <div style='float:top'>
+           <%link_obj = get_link_info("#{post.link}")%>
+           <%=image_tag(link_obj.images.first.src.to_s, width: '75%')%>
+         </div>
          <%= render partial: 'votes/voter', locals: { post: post } %>
          <div class="media-body">
            <h4 class="media-heading">

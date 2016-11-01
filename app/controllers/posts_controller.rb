@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-
+  helper_method :get_link_info
 
 
   before_action :require_sign_in, except: :show
@@ -62,8 +62,6 @@ class PostsController < ApplicationController
    end
 
    def get_link_info(link)
-     require link_thumbnailer
-     
      link_obj = LinkThumbnailer.generate(link)
      return link_obj
    end
@@ -71,7 +69,7 @@ class PostsController < ApplicationController
    private
 
    def post_params
-     params.require(:post).permit(:title,:body)
+     params.require(:post).permit(:title,:body,:link)
    end
 
    def authorize_user

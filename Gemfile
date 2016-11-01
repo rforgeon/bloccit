@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'shoulda'
 
 # Used for encrypting User passwords
- gem 'bcrypt'
+gem 'bcrypt'
 
 #link preview
 gem 'link_thumbnailer'
