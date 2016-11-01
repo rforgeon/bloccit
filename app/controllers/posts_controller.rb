@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  require link_thumbnailer
+
+
   before_action :require_sign_in, except: :show
   before_action :authorize_user, except: [:show, :new, :create]
 
@@ -56,6 +59,11 @@ class PostsController < ApplicationController
        flash.now[:alert] = "There was an error deleting the post."
        render :show
      end
+   end
+
+   def get_link_info(link)
+     link_obj = LinkThumbnailer.generate(link)
+     return link_obj
    end
 
    private
