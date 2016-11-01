@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  require link_thumbnailer
+
 
 
   before_action :require_sign_in, except: :show
@@ -62,6 +62,8 @@ class PostsController < ApplicationController
    end
 
    def get_link_info(link)
+     require link_thumbnailer
+     
      link_obj = LinkThumbnailer.generate(link)
      return link_obj
    end

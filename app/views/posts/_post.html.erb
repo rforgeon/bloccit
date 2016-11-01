@@ -2,14 +2,13 @@
 
 <div class="media">
    <%= render partial: 'votes/voter', locals: { post: post } %>
-   <%link_obj = get_link_info(post.link)%>
-   <%=image_tag link_obj.images.first.src.to_s%>
+
    <div class="media-body">
      <h4 class="media-heading">
        <%= link_to post.title, topic_post_path(post.topic, post) %>
      </h4>
      <small>
-       submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br>
+       TEST submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br>
        <%= post.comments.count %> Comments
      </small>
    </div>
