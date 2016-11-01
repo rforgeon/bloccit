@@ -1,5 +1,11 @@
+require link_thumbnailer
+
+
+
 <div class="media">
    <%= render partial: 'votes/voter', locals: { post: post } %>
+   <%link_obj = LinkThumbnailer.generate('#{post.link}')%>
+   <img src='#{link_obj.images.first.src.to_s}'
    <div class="media-body">
      <h4 class="media-heading">
        <%= link_to post.title, topic_post_path(post.topic, post) %>
