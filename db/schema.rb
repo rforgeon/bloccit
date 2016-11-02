@@ -83,14 +83,6 @@ ActiveRecord::Schema.define(version: 20161101154005) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "role"
-  end
 
   create_table "votes", force: :cascade do |t|
     t.integer  "value"

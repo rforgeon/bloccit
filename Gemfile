@@ -33,6 +33,15 @@ gem 'bcrypt'
 #link preview
 gem 'link_thumbnailer'
 
+#javascript handler
+gem 'therubyracer'
+
+#user auth
+gem 'devise'
+
+#user auth with outside sources 
+gem 'omniauth'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
