@@ -1,9 +1,11 @@
 <br>
- <div class="jumbotron">
+ <div class="jumbotron" style="background-color:#060606">
    <h1>Whereto.TV</h1>
-   <p>Bloccit is a resource for sharing links with your friends!</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NmvHhTVsO7g?autoplay=1" frameborder="0" allowfullscreen></iframe> 
-  <p>
+   <p>Find where to travel next!</p>
+   <div style='float:top'>
+    <div id="ytplayer"></div>
+   </div>
+   <p>
      <%= link_to "Sign In", new_session_path %> or
      <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary' %> today!
    </p>
@@ -22,3 +24,39 @@
      <p>Bloccit will make you better looking: it's scientifically proven to make men look like Ryan Gosling and women look like Shakira.</p>
    </div>
  </div>
+
+
+ <script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('ytplayer'
+    , {
+      height: '500',
+      width: '100%',
+      playerVars: { 'autoplay': 1},
+      //videoId: '<%=strip_link_id("https://youtu.be/72__Mdioty8")%>'
+    });
+    player.loadPlaylist({
+             list:'72__Mdioty8,72__Mdioty8',
+             listType:'playlist',
+             index:0,
+             startSeconds:0,
+             suggestedQuality:"default"});
+ }
+function loadPlaylist_playlist_id() {
+            player.loadPlaylist({list:'72__Mdioty8,72__Mdioty8',
+                     listType:'playlist',
+                     index:0,
+                     startSeconds:0,
+                     suggestedQuality:"default"});
+  }
+
+</script>
