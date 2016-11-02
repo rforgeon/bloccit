@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
 
   helper_method :get_link_info
   helper_method :strip_link_id
+  helper_method :topVideos
 
   def index
   end
@@ -24,6 +25,21 @@ class WelcomeController < ApplicationController
     code = codeArray[0]
     code.reverse!
     return code
+  end
+
+  def topVideos
+    @posts = Post.all
+    videoRankArray = []
+    @posts.each do |post|
+      linkCode = strip_link_id(post.link)
+      videoRankArray.push([post.rank,linkCode])
+    end
+    videoRankArray.sort!{|x,y|y<=>x}
+    videoCodeString = ''
+    videoRankArray.each do |video|
+      videoCodeString = videoCodeString+video[1]+','
+    end
+    return videoCodeString
   end
 
 end
