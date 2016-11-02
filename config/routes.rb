@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :topics do
     resources :posts, except: [:index]
   end
@@ -13,9 +14,6 @@ Rails.application.routes.draw do
 
   end
 
-  resources :users, only: [:new, :create, :show]
-
-  resources :sessions, only: [:new, :create, :destroy]
 
   get 'welcome/faq'
 
